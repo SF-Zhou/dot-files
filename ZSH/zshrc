@@ -30,6 +30,11 @@ fi
 source "$fasd_cache"
 unset fasd_cache
 
+# RamDisk
+if ! test -d /t ; then
+    diskutil erasevolume HFS+ 'RamDisk' `hdiutil attach -nomount ram://2097152`
+fi
+
 # Alias
 alias c="cd ~"
 alias d="cd .."
