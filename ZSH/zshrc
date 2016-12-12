@@ -1,0 +1,41 @@
+export PATH=/usr/local/bin:$PATH
+
+export ZSH=/Users/sfzhou/.oh-my-zsh
+ZSH_THEME="agnoster"
+COMPLETION_WAITING_DOTS="true"
+HIST_STAMPS="yyyy-mm-dd"
+plugins=(git textmate)
+
+source $ZSH/oh-my-zsh.sh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# ssh
+export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# HTTP Proxy
+RESULT=`pgrep polipo`
+if [ "${RESULT:-null}" = null ]; then
+    nohup polipo socksParentProxy=localhost:1080 >/dev/null 2>&1 &
+    disown
+fi
+export http_proxy=http://127.0.0.1:8123/
+export https_proxy=https://127.0.0.1:8123/
+unset RESULT
+
+# Fasd
+fasd_cache="$HOME/.fasd-init-bash"
+if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+  fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install >| "$fasd_cache"
+fi
+source "$fasd_cache"
+unset fasd_cache
+
+# Alias
+alias c="cd ~"
+alias d="cd .."
+alias gp="git pull"
+alias gd="git diff"
+alias gs="git status"
+alias gco="git checkout"
+alias gpm="git push origin master"
+alias gc="git add --all && git commit -m"
