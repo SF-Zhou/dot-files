@@ -9,9 +9,9 @@ control_handler = function(evt)
     local current = evt:getFlags()
 
     if saved["ready"] and not next(current) then
-        hs.alert.show('ESC')
         saved["ready"] = false
         saved["last_is_empty"] = true
+        hs.eventtap.keyStroke({}, "ESCAPE")
         return false
     else
         saved["ready"] = false
@@ -42,7 +42,7 @@ hs.eventtap.new({12}, control_handler):start()
 hs.window.animationDuration = 0
 
 -- for whole window
-hs.hotkey.bind({"cmd", "alt"}, "Up", function()
+hs.hotkey.bind({"cmd", "shift"}, "Up", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -51,7 +51,7 @@ hs.hotkey.bind({"cmd", "alt"}, "Up", function()
 end)
 
 -- for left half window
-hs.hotkey.bind({"cmd", "alt"}, "Left", function()
+hs.hotkey.bind({"cmd", "shift"}, "Left", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -65,7 +65,7 @@ hs.hotkey.bind({"cmd", "alt"}, "Left", function()
 end)
 
 -- for right half window
-hs.hotkey.bind({"cmd", "alt"}, "Right", function()
+hs.hotkey.bind({"cmd", "shift"}, "Right", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -79,7 +79,7 @@ hs.hotkey.bind({"cmd", "alt"}, "Right", function()
 end)
 
 -- reload config
-hs.hotkey.bind({"cmd", "alt"}, "Down", function()
+hs.hotkey.bind({"cmd", "shift"}, "Down", function()
   hs.reload()
 end)
-hs.alert.show("Config loaded")
+hs.alert.show("Hammerspoon Config Reloaded")
