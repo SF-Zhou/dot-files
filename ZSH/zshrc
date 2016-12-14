@@ -1,4 +1,4 @@
-export PATH=/usr/local/bin:$PATH
+export PATH=$HOME/.sf_bin:/usr/local/bin:$PATH
 
 export ZSH=/Users/sfzhou/.oh-my-zsh
 ZSH_THEME="agnoster"

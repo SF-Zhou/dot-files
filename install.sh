@@ -1,23 +1,31 @@
+#!/usr/local/bin/zsh
+
 # Git
 echo Set Git
-rm -f ~/.gitconfig
-ln -s `pwd`/Git/git.config ~/.gitconfig
+rm -f $HOME/.gitconfig
+ln -s `pwd`/Git/git.config $HOME/.gitconfig
 
 # Hammerspoon
 echo Set Hammerspoon 
-mkdir -p ~/.hammerspoon
-rm -f ~/.hammerspoon/init.lua
-ln -s `pwd`/Hammerspoon/init.lua ~/.hammerspoon/init.lua
+mkdir -p $HOME/.hammerspoon
+rm -f $HOME/.hammerspoon/init.lua
+ln -s `pwd`/Hammerspoon/init.lua $HOME/.hammerspoon/init.lua
 
 # Vim
 echo Set Vim
 if ! test -d $HOME/.vim/bundle/Vundle.vim; then
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 fi
 rm -f $HOME/.vimrc
 ln -s `pwd`/Vim/vimrc.vim $HOME/.vimrc
 
 # ZSH + oh-my-zsh
 echo Set ZSH
-rm -f ~/.zshrc
-ln -s `pwd`/ZSH/zshrc ~/.zshrc
+rm -f $HOME/.zshrc
+ln -s `pwd`/ZSH/zshrc $HOME/.zshrc
+rm -rf $HOME/.sf_bin/
+mkdir $HOME/.sf_bin/
+ln -s `pwd`/ZSH/src/copy.py $HOME/.sf_bin/copy
+ln -s `pwd`/ZSH/src/paste.py $HOME/.sf_bin/paste
+ln -s `pwd`/ZSH/src/show.py $HOME/.sf_bin/show
+source $HOME/.zshrc
