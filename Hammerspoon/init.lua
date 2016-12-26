@@ -1,41 +1,35 @@
-function table.length( tbl )
-  local count = 0
-  for _ in pairs(tbl) do count = count + 1 end
-  return count
-end
+-- tap control for escape
+ctrl_table = {
+    sends_escape = true,
+    last_mods = {}
+}
 
-saved = {ready=false, last_is_empty=true}
+control_key_timer = hs.timer.delayed.new(0.15, function()
+    ctrl_table["send_escape"] = false
+end
+)
+
+last_mods = {}
+
 control_handler = function(evt)
-    local current = evt:getFlags()
-
-    if saved["ready"] and not next(current) then
-        saved["ready"] = false
-        saved["last_is_empty"] = true
-        hs.eventtap.keyStroke({}, "ESCAPE")
-        return false
-    else
-        saved["ready"] = false
+  local new_mods = evt:getFlags()
+  if last_mods["ctrl"] == new_mods["ctrl"] then
+      return false
+  end
+  if not last_mods["ctrl"] then
+    last_mods = new_mods
+    ctrl_table["send_escape"] = true
+    control_key_timer:start()
+  else
+    if ctrl_table["send_escape"] then
+      hs.eventtap.keyStroke({}, "ESCAPE")
     end
-
-    if current["ctrl"] and saved["last_is_empty"] and table.length(current) == 1 then
-        saved["ready"] = true
-    end
-
-    if not next(current) then
-        saved["last_is_empty"] = true
-    else
-        saved["last_is_empty"] = false
-    end
-
-    return false
+    last_mods = new_mods
+    control_key_timer:stop()
+  end
+  return false
 end
 
-key_handler = function(evt)
-    saved["ready"] = false
-    return false
-end
-
-hs.eventtap.new({10, 11}, key_handler):start()
 hs.eventtap.new({12}, control_handler):start()
 
 -- disalbe animations
