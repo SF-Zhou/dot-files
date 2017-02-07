@@ -192,6 +192,7 @@ let NERDTreeWinPos=1
 
 Plugin 'wting/rust.vim' 
 Plugin 'indentpython.vim'
+Plugin 'posva/vim-vue'
 
 " code complete
 Bundle 'Shougo/neocomplcache'
@@ -301,14 +302,8 @@ Plugin 'SF-Zhou/vim-colors-solarized'
 set background=dark
 colorscheme solarized
 
-nmap <silent> <leader>ev :e ~/Work/Vimrc/vimrc.vim<CR>
-nmap <silent> <leader>sv :so ~/Work/Vimrc/vimrc.vim<CR>
-
-autocmd FileType cpp source ~/Work/Vimrc/cpp.vim
-autocmd FileType python source ~/Work/Vimrc/py.vim
-autocmd FileType ruby source ~/Work/Vimrc/ruby.vim
-autocmd FileType R source ~/Work/Vimrc/R.vim
-autocmd FileType rust source ~/Work/Vimrc/rust.vim
+nmap <silent> <leader>ev :e ~/.vimrc<CR>
+nmap <silent> <leader>sv :so ~/.vimrc<CR>
 
 " Change cursor shape between insert and normal mode in iTerm2.app
 " if $TERM_PROGRAM =~ "iTerm"

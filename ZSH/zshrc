@@ -38,14 +38,16 @@ fi
 # Alias
 alias q="exit"
 alias c="cd ~"
-alias d="cd .. && ls -al"
+alias d="cd .. && ll"
 alias rd="rm -rf"
+
+alias qr="node /Users/sfzhou/Work/Front.End/Learning.Node.js/1.Tools/3.qr.code.generator"
 
 alias gp="git pull"
 alias gd="git diff"
 alias gs="git status"
 alias gco="git checkout"
-alias gpm="git push origin master"
+alias gpm="git push"
 alias gc="git add --all && git commit -m"
 
 # PyEnv
