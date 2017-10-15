@@ -12,15 +12,11 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# HTTP Proxy
-RESULT=`pgrep polipo`
+RESULT=`pgrep kill_double_typing`
 if [ "${RESULT:-null}" = null ]; then
-    nohup polipo socksParentProxy=localhost:1080 >/dev/null 2>&1 &
-    disown
+    nohup /Users/sfzhou/.sf_bin/kill_double_typing >/dev/null 2>&1 &!
+    echo "Start Kill Double Typing"
 fi
-export http_proxy=http://127.0.0.1:8123/
-export https_proxy=http://127.0.0.1:8123/
-unset RESULT
 
 # Fasd
 fasd_cache="$HOME/.fasd-init-bash"
@@ -33,6 +29,8 @@ unset fasd_cache
 # RamDisk
 if ! test -d /t ; then
     diskutil erasevolume HFS+ 'RamDisk' `hdiutil attach -nomount ram://2097152`
+    mkdir -p /t/Temp/Blog/public
+    mkdir -p /t/Temp/Thesis
 fi
 
 # Alias
@@ -49,11 +47,6 @@ alias gs="git status"
 alias gco="git checkout"
 alias gpm="git push"
 alias gc="git add --all && git commit -m"
-
-# PyEnv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 
 alias python="python -B"
 alias python3="python3 -B"

@@ -5,11 +5,10 @@ echo Set Git
 rm -f $HOME/.gitconfig
 ln -s `pwd`/Git/git.config $HOME/.gitconfig
 
-# Hammerspoon
-echo Set Hammerspoon 
-mkdir -p $HOME/.hammerspoon
-rm -f $HOME/.hammerspoon/init.lua
-ln -s `pwd`/Hammerspoon/init.lua $HOME/.hammerspoon/init.lua
+# curl
+echo Set curl
+rm -f $HOME/.curlrc
+ln -s `pwd`/curl/curlrc $HOME/.curlrc
 
 # Vim
 echo Set Vim
