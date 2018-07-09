@@ -32,7 +32,7 @@ let mapleader=','
 map <leader>d :bd<cr>
 
 function! WriteFile()
-python3 << EOF
+python << EOF
 import vim
 import os
 import time
@@ -48,15 +48,14 @@ else:
         lines = f.read().replace('\r', '')
     now = '\n'.join(vim.current.buffer) + '\n'
     if lines == now:
-        print("No Changes~ " + time.strftime('%Y-%m-%d %H:%M:%S',
-        time.localtime(time.time()))+'.%02d'%(int(time.time()*100) % 100))
+        print("No Changes~ " + time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))+'.%02d'%(int(time.time()*100) % 100))
     else:
         vim.command(":w")
 EOF
 endfunction
 
 function! CopyBuffer()
-python3 << EOF
+python << EOF
 import vim
 import pyperclip
 pyperclip.copy('\n'.join(vim.current.buffer))
@@ -114,12 +113,12 @@ set hls
 set mouse=a
 
 " 设置Tab宽度
-set tabstop=4
+set tabstop=2
 " 设置自动对齐空格数
-set shiftwidth=4
-" 设置按退格键时可以一次删除4个空格
-set softtabstop=4
-" 设置按退格键时可以一次删除4个空格
+set shiftwidth=2
+" 设置按退格键时可以一次删除2个空格
+set softtabstop=2
+" 设置按退格键时可以一次删除2个空格
 set smarttab
 
 " 将Tab键自动转换成空格 真正需要Tab键时使用[Ctrl + V + Tab]
