@@ -13,11 +13,6 @@ vim
 echo Set ZSH
 rm -f $HOME/.zshrc
 ln -s `pwd`/ZSH/zshrc_ubuntu $HOME/.zshrc
-rm -rf $HOME/.sf_bin/
-mkdir $HOME/.sf_bin/
-ln -s `pwd`/ZSH/src/copy.py $HOME/.sf_bin/copy.py
-ln -s `pwd`/ZSH/src/paste.py $HOME/.sf_bin/paste.py
-ln -s `pwd`/ZSH/src/show.py $HOME/.sf_bin/show.py
 source $HOME/.zshrc
 
 # Python

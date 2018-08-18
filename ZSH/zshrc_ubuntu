@@ -22,19 +22,5 @@ alias c="cd ~"
 alias d="cd .. && ll"
 alias rd="rm -rf"
 
-alias gp="git pull"
-alias gd="git diff"
-alias gs="git status"
-alias gco="git checkout"
-alias gpm="git push"
-alias gc="git add --all && git commit -m"
-
-alias python="python -B"
-alias python3="python3 -B"
-
-alias pip="sudo -H pip"
-alias pip3="sudo -H pip3"
-
-alias copy="python3 $HOME/.sf_bin/copy.py"
-alias paste="python3 $HOME/.sf_bin/paste.py"
-alias show="python3 $HOME/.sf_bin/show.py"
+alias copy="xclip -sel clip"
+alias paste="xclip -sel clip -o"

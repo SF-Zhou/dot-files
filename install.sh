@@ -22,9 +22,4 @@ ln -s `pwd`/Vim/vimrc.vim $HOME/.vimrc
 echo Set ZSH
 rm -f $HOME/.zshrc
 ln -s `pwd`/ZSH/zshrc $HOME/.zshrc
-rm -rf $HOME/.sf_bin/
-mkdir $HOME/.sf_bin/
-ln -s `pwd`/ZSH/src/copy.py $HOME/.sf_bin/copy
-ln -s `pwd`/ZSH/src/paste.py $HOME/.sf_bin/paste
-ln -s `pwd`/ZSH/src/show.py $HOME/.sf_bin/show
 source $HOME/.zshrc
