@@ -16,6 +16,8 @@ fi
 source "$fasd_cache"
 unset fasd_cache
 
+xcape -e "Caps_Lock=Escape;Control_L=Escape;Control_R=Escape"
+
 # Alias
 alias q="exit"
 alias c="cd ~"
