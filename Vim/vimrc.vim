@@ -32,7 +32,7 @@ let mapleader=','
 map <leader>d :bd<cr>
 
 function! WriteFile()
-python << EOF
+python3 << EOF
 import vim
 import os
 import time
@@ -55,7 +55,7 @@ EOF
 endfunction
 
 function! CopyBuffer()
-python << EOF
+python3 << EOF
 import vim
 import pyperclip
 pyperclip.copy('\n'.join(vim.current.buffer))
