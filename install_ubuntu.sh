@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+sudo apt install git vim-gtk xcape proxychains xclip tsocks
+
 # Vim
 echo Set Vim
 if ! test -d $HOME/.vim/bundle/Vundle.vim; then
