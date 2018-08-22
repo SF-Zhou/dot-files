@@ -2,6 +2,7 @@
 
 sudo apt install git vim-gtk xcape proxychains xclip tsocks
 sudo apt install libssl-dev libbz2-dev libreadline-dev libsqlite3-dev
+sudo apt install supervisor polipo
 
 # Vim
 echo Set Vim

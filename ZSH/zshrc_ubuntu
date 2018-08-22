@@ -1,4 +1,11 @@
-export PATH=$HOME/.sf_bin:/usr/local/bin:$PATH
+# Path
+export CUDA_HOME=/usr/local/cuda-9.0
+export PATH=$CUDA_HOME/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=$CUDA_HOME/lib64:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+# SRILM
+export PATH=/home/sf/Code/Productivity/SRILM/bin${PATH:+:${PATH}}
+export PATH=/home/sf/Code/Productivity/SRILM/bin/i686-m64${PATH:+:${PATH}}
 
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
