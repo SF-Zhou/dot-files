@@ -46,6 +46,9 @@ autoload -U promptinit
 promptinit
 prompt pure
 
+alias copy="xclip -sel clip"
+alias paste="xclip -sel clip -o"
+
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
