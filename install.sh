@@ -3,7 +3,9 @@
 # Git
 echo Set Git
 rm -f $HOME/.gitconfig
-ln -s `pwd`/Git/git.config $HOME/.gitconfig
+ln -s `pwd`/Git/mac/.gitconfig $HOME/.gitconfig
+rm -f $HOME/.gitignore
+ln -s `pwd`/Git/.gitignore $HOME/.gitignore
 
 # curl
 echo Set curl

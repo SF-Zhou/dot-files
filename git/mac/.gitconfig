@@ -3,3 +3,5 @@
 	email = sfzhou.scut@gmail.com
 [credential]
 	helper = osxkeychain
+[core]
+	excludesfile = ~/.gitignore
