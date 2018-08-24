@@ -1,4 +1,12 @@
-export PATH=$HOME/.sf_bin:$PATH
+################################################################################
+# 1. Path
+#   1. store original path in first time
+#   2. restore path in second time or later
+if [ -z "$ORIGINAL_PATH" ]; then
+  export ORIGINAL_PATH=$PATH
+else
+  export PATH=$ORIGINAL_PATH
+fi
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -8,10 +16,9 @@ ZSH_THEME=""
 
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="yyyy-mm-dd"
-plugins=(git textmate)
+plugins=(git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
