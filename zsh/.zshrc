@@ -1,11 +1,23 @@
 ################################################################################
-# 1. Path (both)
+# 1. Path
 #   1. store original path in first time
 #   2. restore path in second time or later
+#   3. CUDA and other software path
 if [ -z "$ORIGINAL_PATH" ]; then
   export ORIGINAL_PATH=$PATH
 else
   export PATH=$ORIGINAL_PATH
+fi
+
+if [ "$(uname 2> /dev/null)" = "Linux" ]; then
+  export CUDA_HOME=/usr/local/cuda-9.0
+  export PATH=$CUDA_HOME/bin:$PATH
+  export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
+  export PYTHONPATH=$HOME/Code/VPU/caffe/python:$PYTHONPATH
+
+  # SRILM
+  export PATH=$HOME/Code/Productivity/SRILM/bin:$PATH
+  export PATH=$HOME/Code/Productivity/SRILM/bin/i686-m64:$PATH
 fi
 
 
@@ -40,7 +52,7 @@ unset FASD_CACHE
 
 ################################################################################
 # 4. RamDisk (Mac)
-if ! test -d /t ; then
+if [ "$(uname 2> /dev/null)" = "Darwin" ] && [ ! test -d /t ]; then
   diskutil erasevolume HFS+ 'RamDisk' `hdiutil attach -nomount ram://2097152`
   mkdir -p /t/Temp/Blog/public
   mkdir -p /t/Temp/Thesis
