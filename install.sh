@@ -2,7 +2,9 @@
 
 ./curl/setup.sh
 ./git/setup.sh
+
 ./vim/setup.sh
+./pyenv/setup.sh
 
 # ZSH + oh-my-zsh
 echo Set ZSH
