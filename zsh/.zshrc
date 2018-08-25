@@ -22,7 +22,7 @@ fi
 
 
 ################################################################################
-# 2. ZSH & oh-my-zsh (both)
+# 2. ZSH & oh-my-zsh
 #   1. load plugins
 #   2. load pure theme
 export ZSH=$HOME/.oh-my-zsh
@@ -40,7 +40,7 @@ prompt pure
 
 
 ################################################################################
-# 3. Fasd (both)
+# 3. Fasd
 FASD_CACHE="$HOME/.fasd-init-bash"
 if [ "$(command -v fasd)" -nt "$FASD_CACHE" -o ! -s "$fasd_cache" ]; then
   FASD_COMP="zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install"
@@ -51,7 +51,9 @@ unset FASD_CACHE
 
 
 ################################################################################
-# 4. RamDisk (Mac)
+# 4. Platform Specific
+#   1. RamDisk (Mac)
+#   2. Xcape (Ubuntu)
 if [ "$(uname 2> /dev/null)" = "Darwin" ] && [ ! test -d /t ]; then
   diskutil erasevolume HFS+ 'RamDisk' `hdiutil attach -nomount ram://2097152`
   mkdir -p /t/Temp/Blog/public
@@ -61,9 +63,13 @@ if [ "$(uname 2> /dev/null)" = "Darwin" ] && [ ! test -d /t ]; then
   mkdir -p /t/Temp/FPGA/RDAS/cache
 fi
 
+if [ "$(uname 2> /dev/null)" = "Linux" ] && [ ! pgrep xcape ]; then
+  xcape -e "Caps_Lock=Escape;Control_L=Escape;Control_R=Escape"
+fi
+
 
 ################################################################################
-# 5. Alias (both)
+# 5. Alias
 alias q="exit"
 alias c="cd ~"
 alias d="cd .. && ll"
@@ -73,7 +79,7 @@ alias paste="xclip -sel clip -o"
 
 
 ################################################################################
-# 6. pyenv (both)
+# 6. pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
