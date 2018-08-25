@@ -6,4 +6,4 @@ sudo apt -y install python3-opencv
 sudo mkdir -p /etc/supervisor/conf.d
 sudo cp ./supervisor/*.conf /etc/supervisor/conf.d
 sudo cp ./etc_config/proxychains.conf /etc/
-sudo unzip ./etc_config/shadow_config.zip -e /etc/
+sudo unzip ./etc_config/shadow_config.zip -d /etc/
