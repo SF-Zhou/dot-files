@@ -4,10 +4,7 @@ noremap <silent> ;; :nohl<cr><esc>
 
 set timeout timeoutlen=200 ttimeoutlen=0
 
-noremap ;w :call WriteFile()<cr>
-noremap ;q :call WriteFile()<cr>:q!<cr>
-
-map Y :call CopyBuffer()<cr>
+map Y ggVG"+ygg
 vmap Y "+y
 map P "+p
 
@@ -30,39 +27,6 @@ vmap <silent> <expr> p <sid>Repl()
 
 let mapleader=','
 map <leader>d :bd<cr>
-
-function! WriteFile()
-python3 << EOF
-import vim
-import os
-import time
-buff = vim.current.buffer
-filename = buff.name
-lines = ""
-if filename == None or filename == '':
-   print("Please Input filename! :w filename")
-elif os.path.exists(filename) == False:
-    vim.command(":w")
-else:
-    with open(filename) as f:
-        lines = f.read().replace('\r', '')
-    now = '\n'.join(vim.current.buffer) + '\n'
-    if lines == now:
-        print("No Changes~ " + time.strftime('%Y-%m-%d %H:%M:%S',
-        time.localtime(time.time()))+'.%02d'%(int(time.time()*100) % 100))
-    else:
-        vim.command(":w")
-EOF
-endfunction
-
-function! CopyBuffer()
-python3 << EOF
-import vim
-import pyperclip
-pyperclip.copy('\n'.join(vim.current.buffer))
-print("Copy All Lines to Clipboard~")
-EOF
-endfunction
 
 " =============================================
 
@@ -114,12 +78,12 @@ set hls
 set mouse=a
 
 " 设置Tab宽度
-set tabstop=4
+set tabstop=2
 " 设置自动对齐空格数
-set shiftwidth=4
-" 设置按退格键时可以一次删除4个空格
-set softtabstop=4
-" 设置按退格键时可以一次删除4个空格
+set shiftwidth=2
+" 设置按退格键时可以一次删除2个空格
+set softtabstop=2
+" 设置按退格键时可以一次删除2个空格
 set smarttab
 
 " 将Tab键自动转换成空格 真正需要Tab键时使用[Ctrl + V + Tab]
