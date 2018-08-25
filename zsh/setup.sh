@@ -17,7 +17,7 @@ if ! test -d $OH_MY_ZSH; then
 fi
 
 mkdir -p $FUNCTIONS
-rm -f $FUNCTIONS/pure  && ln -s $PURE/pure.zsh  $FUNCTIONS/pure
+rm -f $FUNCTIONS/prompt_pure_setup && ln -s $PURE/pure.zsh  $FUNCTIONS/prompt_pure_setup
 rm -f $FUNCTIONS/async && ln -s $PURE/async.zsh $FUNCTIONS/async
 
 rm -f $HOME/.zshrc && ln -s $CURRENT/.zshrc $HOME/.zshrc
