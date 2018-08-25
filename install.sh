@@ -5,9 +5,4 @@
 
 ./vim/setup.sh
 ./pyenv/setup.sh
-
-# ZSH + oh-my-zsh
-echo Set ZSH
-rm -f $HOME/.zshrc
-ln -s `pwd`/ZSH/zshrc $HOME/.zshrc
-source $HOME/.zshrc
+./zsh/setup.sh
