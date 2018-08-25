@@ -63,8 +63,8 @@ if [ "$(uname 2> /dev/null)" = "Darwin" ] && [ ! test -d /t ]; then
   mkdir -p /t/Temp/FPGA/RDAS/cache
 fi
 
-if [ "$(uname 2> /dev/null)" = "Linux" ] && [ ! pgrep xcape ]; then
-  xcape -e "Caps_Lock=Escape;Control_L=Escape;Control_R=Escape"
+if [ "$(uname 2> /dev/null)" = "Linux" ]; then
+  pgrep xcape > /dev/null || xcape -e "Caps_Lock=Escape;Control_L=Escape;Control_R=Escape"
 fi
 
 
