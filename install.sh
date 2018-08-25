@@ -1,5 +1,6 @@
 #!/bin/sh
 
+./curl/setup.sh
 ./git/setup.sh
 
 # curl
