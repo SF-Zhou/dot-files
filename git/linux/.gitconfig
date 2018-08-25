@@ -1,0 +1,7 @@
+[user]
+	name = SF-Zhou
+	email = sfzhou.scut@gmail.com
+[credential]
+	helper = store
+[core]
+	excludesfile = ~/.gitignore
