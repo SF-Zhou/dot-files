@@ -4,10 +4,7 @@ noremap <silent> ;; :nohl<cr><esc>
 
 set timeout timeoutlen=200 ttimeoutlen=0
 
-noremap ;w :call WriteFile()<cr>
-noremap ;q :call WriteFile()<cr>:q!<cr>
-
-map Y :call CopyBuffer()<cr>
+map Y ggVG"+ygg
 vmap Y "+y
 map P "+p
 
@@ -30,38 +27,6 @@ vmap <silent> <expr> p <sid>Repl()
 
 let mapleader=','
 map <leader>d :bd<cr>
-
-function! WriteFile()
-python3 << EOF
-import vim
-import os
-import time
-buff = vim.current.buffer
-filename = buff.name
-lines = ""
-if filename == None or filename == '':
-   print("Please Input filename! :w filename")
-elif os.path.exists(filename) == False:
-    vim.command(":w")
-else:
-    with open(filename) as f:
-        lines = f.read().replace('\r', '')
-    now = '\n'.join(vim.current.buffer) + '\n'
-    if lines == now:
-        print("No Changes~ " + time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))+'.%02d'%(int(time.time()*100) % 100))
-    else:
-        vim.command(":w")
-EOF
-endfunction
-
-function! CopyBuffer()
-python3 << EOF
-import vim
-import pyperclip
-pyperclip.copy('\n'.join(vim.current.buffer))
-print("Copy All Lines to Clipboard~")
-EOF
-endfunction
 
 " =============================================
 
