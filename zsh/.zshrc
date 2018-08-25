@@ -54,7 +54,7 @@ unset FASD_CACHE
 # 4. Platform Specific
 #   1. RamDisk (Mac)
 #   2. Xcape (Ubuntu)
-if [ "$(uname 2> /dev/null)" = "Darwin" ] && [ ! test -d /t ]; then
+if [ "$(uname 2> /dev/null)" = "Darwin" ] && [ ! -d /t ]; then
   diskutil erasevolume HFS+ 'RamDisk' `hdiutil attach -nomount ram://2097152`
   mkdir -p /t/Temp/Blog/public
   mkdir -p /t/Temp/Thesis
