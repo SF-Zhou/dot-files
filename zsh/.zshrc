@@ -45,8 +45,7 @@ antigen apply
 # 3. Fasd
 FASD_CACHE="$HOME/.fasd-init-bash"
 if [ "$(command -v fasd)" -nt "$FASD_CACHE" -o ! -s "$fasd_cache" ]; then
-  FASD_COMP="zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install"
-  fasd --init posix-alias $FASD_COMP >| "$FASD_CACHE"
+  fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install >| "$FASD_CACHE"
 fi
 source "$FASD_CACHE"
 unset FASD_CACHE
