@@ -34,6 +34,7 @@ fi
 source $HOME/.antigen.zsh
 antigen use oh-my-zsh
 antigen bundle git
+antigen bundle clvv/fasd fasd
 antigen bundle packruler/zsh-git-scripts
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen theme refined
