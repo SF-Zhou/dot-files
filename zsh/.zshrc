@@ -22,21 +22,22 @@ fi
 
 
 ################################################################################
-# 2. ZSH & oh-my-zsh
-#   1. load plugins
-#   2. load pure theme
-export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME=""
-COMPLETION_WAITING_DOTS="true"
-HIST_STAMPS="yyyy-mm-dd"
-plugins=(git zsh-syntax-highlighting)
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-source $ZSH/oh-my-zsh.sh
+# 2. ZSH & antigen
+#   1. load oh-my-zsh
+#   2. load bundle
+#   3. load theme
 
-autoload -U promptinit
-promptinit
-prompt pure
+ANTIGEN=$HOME/.antigen.zsh
+if [ ! -f $ANTIGEN ]; then
+  curl -L git.io/antigen > $ANTIGEN
+fi
+source $HOME/.antigen.zsh
+antigen use oh-my-zsh
+antigen bundle git
+antigen bundle packruler/zsh-git-scripts
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen theme refined
+antigen apply
 
 
 ################################################################################
