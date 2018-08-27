@@ -37,7 +37,8 @@ antigen bundle git
 antigen bundle clvv/fasd fasd
 antigen bundle packruler/zsh-git-scripts
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen theme refined
+antigen bundle mafredri/zsh-async
+antigen bundle sindresorhus/pure
 antigen apply
 
 
