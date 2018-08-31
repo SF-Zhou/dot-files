@@ -79,6 +79,11 @@ alias rd="rm -rf"
 alias copy="xclip -sel clip"
 alias paste="xclip -sel clip -o"
 
+if [ "$(uname 2> /dev/null)" = "Darwin" ]; then
+  alias copy="pbcopy"
+  alias paste="pbpaste"
+fi
+
 
 ################################################################################
 # 6. pyenv

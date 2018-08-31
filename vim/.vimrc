@@ -242,7 +242,7 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-autocmd VimLeave * call system("xclip -sel clip", getreg('+'))
+autocmd VimLeave * call system("pbcopy || xclip -sel clip", getreg('+'))
 
 " Enable heavy omni completion.
 if !exists('g:neocomplcache_force_omni_patterns')
