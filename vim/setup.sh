@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TASK="setup curl"
+TASK="setup vim"
 CURRENT="$( cd "$(dirname "$0")" ; pwd -P )"
 
 echo $TASK start
