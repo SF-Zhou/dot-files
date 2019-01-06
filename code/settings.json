@@ -1,0 +1,10 @@
+{
+    "editor.fontSize": 16,
+    "editor.tabSize": 2,
+    "terminal.integrated.fontSize": 16,
+    "C_Cpp.clang_format_fallbackStyle": "Google",
+    "files.autoSave": "onFocusChange",
+    "vim.handleKeys": {
+        "<C-w>": false
+    }
+}
