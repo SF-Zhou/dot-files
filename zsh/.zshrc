@@ -64,6 +64,7 @@ if [ "$(uname 2> /dev/null)" = "Darwin" ] && [ ! -d /t ]; then
   mkdir -p /t/Temp/TMI
   mkdir -p /t/Temp/Quina
   mkdir -p /t/Temp/FPGA/RDAS/cache
+
 fi
 
 if [ "$(uname 2> /dev/null)" = "Linux" ]; then
@@ -87,12 +88,14 @@ fi
 
 
 ################################################################################
-# 6. pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
 
-alias brew="ALL_PROXY=socks5://127.0.0.1:1080 brew"
+# 6. Others
+if [ "$(uname 2> /dev/null)" = "Darwin" ]; then
+  # MiniConda3
+  export PATH=/usr/local/miniconda3/bin:"$PATH"
+  # HomeBrew Bottle
+  export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+  # JEnv
+  export JENV_ROOT="/usr/local/opt/jenv"
+  if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+fi
