@@ -38,6 +38,11 @@ hs.hotkey.bind({"cmd", "shift"}, "Right", function()
   win:setFrame(f)
 end)
 
+-- bind Finder
+hs.hotkey.bind({"cmd"}, "Space", function()
+  hs.application.launchOrFocus("Finder")
+end)
+
 -- reload config
 hs.hotkey.bind({"cmd", "shift"}, "Down", function()
   hs.reload()
