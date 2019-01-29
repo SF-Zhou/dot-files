@@ -88,8 +88,9 @@ fi
 
 
 ################################################################################
-
 # 6. Others
+#   1. Mac miniconda3, homebrew-bottles, jenv
+#   2. Private secret part
 if [ "$(uname 2> /dev/null)" = "Darwin" ]; then
   # MiniConda3
   export PATH=/usr/local/miniconda3/bin:"$PATH"
@@ -99,3 +100,5 @@ if [ "$(uname 2> /dev/null)" = "Darwin" ]; then
   export JENV_ROOT="/usr/local/opt/jenv"
   if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 fi
+
+[ -f $HOME/.secret.sh ] && source $HOME/.secret.sh
