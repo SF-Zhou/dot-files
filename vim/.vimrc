@@ -2,8 +2,8 @@ noremap <silent> ;; :nohl<cr><esc>
 set timeout timeoutlen=200 ttimeoutlen=0
 
 map P "+p
-vmap Y "+y
 map Y ggVG"+ygg
+vmap Y "+y
 vnoremap <silent> y y`]
 vnoremap <silent> p p`]
 nnoremap <silent> p p`]
