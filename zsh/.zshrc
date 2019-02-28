@@ -67,7 +67,7 @@ if [ "$(uname 2> /dev/null)" = "Darwin" ] && [ ! -d /t ]; then
 
 fi
 
-if [ "$(uname 2> /dev/null)" = "Linux" ]; then
+if [ "$(uname 2> /dev/null)" = "Linux" ] && which xcape > /dev/null 2>&1; then
   pgrep xcape > /dev/null || xcape -e "Caps_Lock=Escape;Control_L=Escape;Control_R=Escape"
 fi
 
