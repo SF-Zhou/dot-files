@@ -45,7 +45,6 @@ set smarttab
 set expandtab
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
-%retab!
 syntax on
 syntax enable
 filetype on
@@ -54,6 +53,14 @@ filetype plugin on
 filetype plugin indent on
 nmap <silent> <leader>ev :e ~/.vimrc<CR>
 nmap <silent> <leader>sv :so ~/.vimrc<CR>
+
+
+""" auto install plugin
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 
 """" plugin begin
@@ -74,4 +81,4 @@ call plug#end()
 
 
 set background=dark
-colorscheme solarized
+silent! colorscheme solarized
