@@ -57,14 +57,12 @@ unset FASD_CACHE
 # 4. Platform Specific
 #   1. RamDisk (Mac)
 #   2. Xcape (Ubuntu)
-if [ "$(uname 2> /dev/null)" = "Darwin" ] && [ ! -d /t ]; then
+
+# If you prefer to RamDisk, you can create a symbol-link [/t] to link [/Volumes/RamDisk]
+# The followed command will create a RamDisk with 1G RAM in default.
+if [ "$(uname 2> /dev/null)" = "Darwin" ] && [ -L /t ] && [ ! -d /t ]; then
   diskutil erasevolume HFS+ 'RamDisk' `hdiutil attach -nomount ram://2097152`
   mkdir -p /t/Temp/Blog/public
-  mkdir -p /t/Temp/Thesis
-  mkdir -p /t/Temp/TMI
-  mkdir -p /t/Temp/Quina
-  mkdir -p /t/Temp/FPGA/RDAS/cache
-
 fi
 
 if [ "$(uname 2> /dev/null)" = "Linux" ] && which xcape > /dev/null 2>&1; then
@@ -89,11 +87,9 @@ fi
 
 ################################################################################
 # 6. Others
-#   1. Mac miniconda3, homebrew-bottles, jenv
+#   1. Mac homebrew-bottles, jenv
 #   2. Private secret part
 if [ "$(uname 2> /dev/null)" = "Darwin" ]; then
-  # MiniConda3
-  export PATH=/usr/local/miniconda3/bin:"$PATH"
   # HomeBrew Bottle
   export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
   # JEnv
