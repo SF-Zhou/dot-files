@@ -27,6 +27,7 @@ fi
 #   2. load bundle
 #   3. load theme
 
+export LC_ALL=en_US.UTF-8
 ANTIGEN=$HOME/.antigen.zsh
 if [ ! -f $ANTIGEN ]; then
   curl -L git.io/antigen > $ANTIGEN
