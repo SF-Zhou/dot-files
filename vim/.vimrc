@@ -74,6 +74,10 @@ Plug 'tpope/vim-commentary'
 nmap <BS> gcc
 vmap <BS> gc
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
 Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
