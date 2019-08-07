@@ -8,3 +8,5 @@ git clone https://github.com/SF-Zhou/dot-files.git
 cd dot-files
 ./install.sh
 ```
+
+PS: vim config need a nerd font for best experience. (Download [here](https://github.com/ryanoasis/nerd-fonts))
