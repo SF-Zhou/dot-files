@@ -39,7 +39,7 @@ hs.hotkey.bind({"cmd", "shift"}, "Right", function()
 end)
 
 -- bind Finder
-hs.hotkey.bind({"cmd"}, "Space", function()
+hs.hotkey.bind({"control"}, "Space", function()
   hs.application.launchOrFocus("Finder")
 end)
 
@@ -49,27 +49,17 @@ hs.hotkey.bind({"cmd", "shift"}, "Down", function()
 end)
 
 -- simulate mouse
-function mouse_down()
+function mouse_move(x, y)
   pos = hs.mouse.getAbsolutePosition()
-  pos.y = pos.y + 20
+  pos.x = pos.x + x
+  pos.y = pos.y + y
   hs.mouse.setAbsolutePosition(pos)
 end
-function mouse_up()
-  pos = hs.mouse.getAbsolutePosition()
-  pos.y = pos.y - 20
-  hs.mouse.setAbsolutePosition(pos)
-end
-function mouse_left()
-  pos = hs.mouse.getAbsolutePosition()
-  pos.x = pos.x - 20
-  hs.mouse.setAbsolutePosition(pos)
-end
-function mouse_right()
-  pos = hs.mouse.getAbsolutePosition()
-  pos.x = pos.x + 20
-  hs.mouse.setAbsolutePosition(pos)
-end
-
+delta = 20
+function mouse_down() mouse_move(0, delta) end
+function mouse_up() mouse_move(0, -delta) end
+function mouse_left() mouse_move(-delta, 0) end
+function mouse_right() mouse_move(delta, 0) end
 hs.hotkey.bind({"option"}, "J", mouse_down, nil, mouse_down)
 hs.hotkey.bind({"option"}, "K", mouse_up, nil, mouse_up)
 hs.hotkey.bind({"option"}, "H", mouse_left, nil, mouse_left)
