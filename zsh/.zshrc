@@ -48,9 +48,9 @@ unset FASD_CACHE
 
 # If you prefer to RamDisk, you can create a symbol-link [/t] to link [/Volumes/RamDisk]
 # The followed command will create a RamDisk with 1G RAM in default.
-if [ "$(uname 2> /dev/null)" = "Darwin" ] && [ -L /t ] && [ ! -d /t ]; then
+if [ "$(uname 2> /dev/null)" = "Darwin" ] && [ ! -d /Volumes/RamDisk ]; then
   diskutil erasevolume HFS+ 'RamDisk' `hdiutil attach -nomount ram://2097152`
-  mkdir -p /t/Temp/Blog/public
+  mkdir -p /Volumes/RamDisk/Temp/Blog/public
 fi
 
 if [ "$(uname 2> /dev/null)" = "Linux" ] && which xcape > /dev/null 2>&1; then
