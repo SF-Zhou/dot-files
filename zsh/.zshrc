@@ -46,9 +46,9 @@ unset FASD_CACHE
 #   1. RamDisk (Mac)
 #   2. Xcape (Ubuntu)
 
-# If you prefer to RamDisk, you can create a symbol-link [/t] to link [/Volumes/RamDisk]
-# The followed command will create a RamDisk with 1G RAM in default.
-if [ "$(uname 2> /dev/null)" = "Darwin" ] && [ ! -d /Volumes/RamDisk ]; then
+# If you prefer to RamDisk, you can create a mark file ~/.ramdisk,
+# then the followed command will create a RamDisk with 1G RAM in default.
+if [ "$(uname 2> /dev/null)" = "Darwin" ] && [ -f $HOME/.ramdisk ] && [ ! -d /Volumes/RamDisk ]; then
   diskutil erasevolume HFS+ 'RamDisk' `hdiutil attach -nomount ram://2097152`
   mkdir -p /Volumes/RamDisk/Temp/Blog/public
 fi
