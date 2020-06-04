@@ -16,11 +16,11 @@ fi
 #   3. load theme
 
 export LC_ALL=en_US.UTF-8
-ANTIGEN=$HOME/.antigen.zsh
+ANTIGEN=$HOME/.antigen.git/bin/antigen.zsh
 if [ ! -f $ANTIGEN ]; then
-  curl -L git.io/antigen > $ANTIGEN
+  git clone https://github.com/zsh-users/antigen.git --depth 1 $HOME/.antigen.git
 fi
-source $HOME/.antigen.zsh
+source $ANTIGEN
 antigen use oh-my-zsh
 antigen bundle git
 antigen bundle clvv/fasd fasd
