@@ -74,17 +74,4 @@ if [ "$(uname 2> /dev/null)" = "Darwin" ]; then
   alias paste="pbpaste"
 fi
 
-
-################################################################################
-# 6. Others
-#   1. Mac homebrew-bottles, jenv
-#   2. Private secret part
-if [ "$(uname 2> /dev/null)" = "Darwin" ]; then
-  # HomeBrew Bottle
-  export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
-  # JEnv
-  export JENV_ROOT="/usr/local/opt/jenv"
-  if which jenv > /dev/null; then eval "$(jenv init -)"; fi
-fi
-
 [ -f $HOME/.secret.sh ] && source $HOME/.secret.sh
